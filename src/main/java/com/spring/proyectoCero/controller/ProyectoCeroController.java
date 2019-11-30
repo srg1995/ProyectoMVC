@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller("ProyectoCeroController")
 public class ProyectoCeroController {
+	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String hola(){
-		return "hola";
+	public String cargaInicial(){
+		return "saludo";
 	}
 }
