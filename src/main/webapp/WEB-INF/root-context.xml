@@ -5,6 +5,26 @@
       
 	<!-- Definir los beans que no son de controller, como config JDBC, servicios, componentes -->
 	<!-- ejemplo <beans:import resource="classpath:spring/base/*.config.xml" /> y este a su vez tiene la configuracion -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://192.168.64.2:3306/datos"></property>
+		<property name="username" value="sergio"></property>
+		<property name="password" value="sergio"></property>
+	</bean>
 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="datoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="com.spring.proyectoCero.mapper.DatoMapper"></property>
+	</bean>
+	
+	<bean id="datoService" class="com.sergio.prueba.service.DatoService">
+		<property name="datoMapper" ref="datoMapper"></property>
+	</bean>	
+ 
 
 </beans>

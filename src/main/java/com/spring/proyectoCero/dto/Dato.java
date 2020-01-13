@@ -6,18 +6,18 @@ public class Dato implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private String id;
+	private String identificador;
 	
 	private String nombre;
 	
 	public Dato() {super();}
 
 	public String getId() {
-		return id;
+		return identificador;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String identificador) {
+		this.identificador = identificador;
 	}
 
 	public String getNombre() {

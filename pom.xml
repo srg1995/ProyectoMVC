@@ -13,6 +13,7 @@
 
 	<dependencies>
 
+		<!-- CONFIGURACION SPRING MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -30,6 +31,9 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!-- FIN DE LA CONFIGURACION MVC -->
+		
+		
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
@@ -37,7 +41,36 @@
 			<artifactId>jackson-core</artifactId>
 			<version>2.10.1</version>
 		</dependency>
-
+		
+		<!-- BBDD -->
+		
+			
+		<dependency>
+	    	<groupId>org.modelmapper</groupId>
+	    	<artifactId>modelmapper</artifactId>
+	    	<version>2.3.2</version>
+		</dependency>
+	
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.5</version>
+		</dependency>
+		<!-- FIN CONFIGURACION BBDD -->
 
 		<dependency>
 			<groupId>junit</groupId>
