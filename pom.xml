@@ -33,9 +33,11 @@
 		</dependency>
 		<!-- FIN DE LA CONFIGURACION MVC -->
 		
-		
 
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<!-- 
+			https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core 
+			Usamos esta dependencia para poder consumir y producir JSON	
+		-->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -44,32 +46,46 @@
 		
 		<!-- BBDD -->
 		
-			
+		<!-- Usamos esta dependencia para poder hacer el mappeo de los xsl  -->
 		<dependency>
 	    	<groupId>org.modelmapper</groupId>
 	    	<artifactId>modelmapper</artifactId>
 	    	<version>2.3.2</version>
 		</dependency>
-	
-	
+		
+		<!-- Usamos esta dependencia para acceder a la bbdd mediante JDBC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		
+		<!-- 
+			https://mvnrepository.com/artifact/mysql/mysql-connector-java
+			 Usamos esta dependencia para conectar con la bbdd
+		-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<!-- 
+			https://mvnrepository.com/artifact/org.mybatis/mybatis 
+			Usamos esta dependencia para instanciar el SQLSessionFactory de un xml
+		-->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.4.5</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>2.0.3</version>
+		</dependency>
+
 		<!-- FIN CONFIGURACION BBDD -->
 
 		<dependency>

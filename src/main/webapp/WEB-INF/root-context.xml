@@ -5,6 +5,12 @@
       
 	<!-- Definir los beans que no son de controller, como config JDBC, servicios, componentes -->
 	<!-- ejemplo <beans:import resource="classpath:spring/base/*.config.xml" /> y este a su vez tiene la configuracion -->
+	
+	
+	<!-- 
+		CONFIGURACION DE LA BBDD
+		Creamos la conexion mediante JDBC
+	 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
@@ -13,16 +19,19 @@
 		<property name="password" value="sergio"></property>
 	</bean>
 
+	<!-- creamos un bean de sqlSessionFactory para poder instanciarlo desde un xml -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-
+	
+	<!-- creamos un bean de mapeo de datos, para conectar lo que nos devuelve la bbdd con los modelos o dto -->
 	<bean id="datoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 		<property name="mapperInterface" value="com.spring.proyectoCero.mapper.DatoMapper"></property>
 	</bean>
 	
-	<bean id="datoService" class="com.sergio.prueba.service.DatoService">
+	<!-- creamos un bean de servicio para poder instanciar el objeto mapeado -->
+	<bean id="datoService" class="com.spring.proyectoCero.service.DatoService">
 		<property name="datoMapper" ref="datoMapper"></property>
 	</bean>	
  

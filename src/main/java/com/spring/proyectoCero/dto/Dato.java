@@ -10,20 +10,36 @@ public class Dato implements Serializable {
 	
 	private String nombre;
 	
-	public Dato() {super();}
+	public Dato() {}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getId() {
 		return identificador;
 	}
 
+	/**
+	 * 
+	 * @param identificador
+	 */
 	public void setId(String identificador) {
 		this.identificador = identificador;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * 
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}

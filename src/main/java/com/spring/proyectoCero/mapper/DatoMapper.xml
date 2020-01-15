@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.proyectoCero.mapper.DatoMapper">
 	<cache />
-	<select id="getDato" resultType="com.spring.proyectoCero.dto.DatoDto">
-		SELECT * FROM dato 
+	<select id="getDato" resultType="com.spring.proyectoCero.dto.Dato">
+		SELECT * FROM dato WHERE identificador=#{identificador}
 	</select>
 </mapper>
