@@ -3,6 +3,7 @@ package com.spring.proyectoCero.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,18 +26,54 @@ public class ProyectoCeroController {
 	 * metodo que creamos para que nos devuelva una jsp mediante el metodo get
 	 */
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String cargaInicial(){
+	public String cargaInicial(Model m){
+		m.addAttribute("nombre","sergio");
 		return "saludo";
 	}
 	
 	/**
-	 * metodo que creamos para ver si podemos obtener un valor de BBDD haciendo una invocacion al servicio
+	 * metodo que creamos para ver si podemos OBTENER un valor de BBDD haciendo una invocacion al servicio
 	 */
 	@RequestMapping(value = "/testBBDD", method = RequestMethod.GET)
 	public void obtenerValorBBDD(){
 		Dato d = datoService.getDatoMapper("1");
 		System.out.print(d.getNombre()+"ESTE ES EL VALOR");
 	}
+	
+	/**
+	 * metodo que creamos para ver si podemos INSERTAR un valor de BBDD haciendo una invocacion al servicio
+	 */
+	@RequestMapping(value = "/testBBDDInsertar", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public void insertarValorBBDD(@RequestBody Dato dato){
+		System.out.println(dato.getIdentificador()+"--"+dato.getNombre()+"--ESTE ES EL VALOR VAS A INSERTAR");
+		
+		datoService.insertarDato(dato);
+	}
+	
+	/**
+	 * metodo que creamos para ver si podemos ACTUALIZAR un valor de BBDD haciendo una invocacion al servicio
+	 */
+	@RequestMapping(value = "/testBBDDActualizar", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public void actualizarValorBBDD(@RequestBody Dato dato){
+		System.out.println(dato.getIdentificador()+"--"+dato.getNombre()+"--ESTE ES EL VALOR VAS A ACTUALIZAR");
+		
+		datoService.actualizarDato(dato);
+	}
+	
+	/**
+	 * metodo que creamos para ver si podemos ELIMINAR un valor de BBDD haciendo una invocacion al servicio
+	 */
+	@RequestMapping(value = "/testBBDDBorrar", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public void borrarValorBBDD(@RequestBody Dato dato){
+		System.out.println(dato.getIdentificador()+"--"+dato.getNombre()+"--ESTE ES EL VALOR VAS A ELIMINAR");
+		
+		datoService.borrarDato(dato.getNombre());
+	}
+	
+	
 	
 	/**
 	 * 

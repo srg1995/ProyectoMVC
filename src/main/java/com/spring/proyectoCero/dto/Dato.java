@@ -16,7 +16,7 @@ public class Dato implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getId() {
+	public String getIdentificador() {
 		return identificador;
 	}
 
@@ -24,7 +24,7 @@ public class Dato implements Serializable {
 	 * 
 	 * @param identificador
 	 */
-	public void setId(String identificador) {
+	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
 	}
 

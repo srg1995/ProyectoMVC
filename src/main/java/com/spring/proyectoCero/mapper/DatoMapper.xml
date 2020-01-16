@@ -5,4 +5,16 @@
 	<select id="getDato" resultType="com.spring.proyectoCero.dto.Dato">
 		SELECT * FROM dato WHERE identificador=#{identificador}
 	</select>
+	
+	<insert id="insertarDato" parameterType="com.spring.proyectoCero.dto.Dato">
+		INSERT INTO dato(identificador,nombre) VALUES (#{identificador},#{nombre})
+	</insert>
+	
+	<update id="actualizarDato" parameterType="com.spring.proyectoCero.dto.Dato">
+		UPDATE dato SET nombre=#{nombre} where identificador=#{identificador}
+	</update>
+	
+	<delete id="borrarDato" parameterType="String">
+		DELETE FROM dato WHERE nombre=#{nombre}
+	</delete>
 </mapper>

@@ -13,6 +13,11 @@ import com.spring.proyectoCero.dto.Dato;
 @RequestMapping("/ProyectoCeroJsonController")
 public class ProyectoCeroControllerJson {
 
+	/**
+	 * 
+	 * @param dato
+	 * @return
+	 */
 	@PostMapping(value = "/test/bodyjson", consumes = {
 			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody

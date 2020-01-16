@@ -39,4 +39,16 @@ public class DatoService {
 	public Dato getDatoMapper(String id) {
 		return datoMapper.getDato(id);
 	}
+	
+	public void insertarDato(Dato d) {
+		datoMapper.insertarDato(d);
+	}
+	
+	public void actualizarDato(Dato d) {
+		datoMapper.actualizarDato(d);
+	}
+	
+	public void borrarDato(String nombre) {
+		datoMapper.borrarDato(nombre);
+	}
 }
