@@ -27,4 +27,10 @@
 
 		<!-- Indica los paquetes que tiene que escanear -->
       <context:component-scan base-package="com.spring.proyectoCero.controller" />
+      
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="basename" value="classpath:i18n/mensajes" />
+		<beans:property name="useCodeAsDefaultMessage" value="true" />
+	</beans:bean>
 </beans:beans>

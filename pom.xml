@@ -127,6 +127,14 @@
 		<!-- FIN CONFIGURACION JSP-->
 		
 		
+		<!-- VALIDACIONES -->
+			<dependency>
+	            <groupId>org.hibernate</groupId>
+	            <artifactId>hibernate-validator</artifactId>
+	            <version>5.2.2.Final</version>
+			</dependency>
+		<!-- FIN VALIDACIONES -->
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
