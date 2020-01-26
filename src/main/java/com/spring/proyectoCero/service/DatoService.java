@@ -1,7 +1,14 @@
 package com.spring.proyectoCero.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ResourceBundle;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+
+import com.spring.proyectoCero.constantes.Constantes;
 import com.spring.proyectoCero.dto.Dato;
 import com.spring.proyectoCero.mapper.DatoMapper;
 
@@ -12,6 +19,7 @@ public class DatoService {
 	@Autowired
 	private DatoMapper datoMapper;
 
+	
 	/* IMPORTANTE
 	 * Para que no nos devuelva un error el mapper, necesitamos crear el getter y el setter para poder acceder a bean
 	 * */
@@ -40,8 +48,17 @@ public class DatoService {
 		return datoMapper.getDato(id);
 	}
 	
-	public void insertarDato(Dato d) {
-		datoMapper.insertarDato(d);
+	public BindingResult insertarDato(Dato d, BindingResult result) {
+		
+
+		ResourceBundle messages = ResourceBundle.getBundle("i18n/mensajes", LocaleContextHolder.getLocale());
+		try {
+			datoMapper.insertarDato(d);
+	    } catch (DuplicateKeyException e) {
+	    	FieldError fe = new FieldError("identificador","identificador",messages.getString(Constantes.CLAVE_REPETIDA));
+	    	result.addError(fe);
+	    }
+		return result;
 	}
 	
 	public void actualizarDato(Dato d) {

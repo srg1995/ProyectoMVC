@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,15 @@ public class ProyectoCeroController {
 	 * creamos la variable datoServicio para poder acceder al servicio */
 	@Autowired
 	DatoService datoService;
+	
+	/**
+	 * metodo que creamos para que nos devuelva una jsp mediante el metodo get
+	 */
+	@RequestMapping(value = "/principal", method = RequestMethod.GET)
+	public String cargaIndex(){
+		return "index";
+	}
+	
 	
 	/**
 	 * metodo que creamos para que nos devuelva una jsp mediante el metodo get
@@ -45,10 +55,10 @@ public class ProyectoCeroController {
 	 */
 	@RequestMapping(value = "/testBBDDInsertar", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public void insertarValorBBDD(@RequestBody Dato dato){
+	public void insertarValorBBDD(@RequestBody Dato dato, BindingResult result){
 		System.out.println(dato.getIdentificador()+"--"+dato.getNombre()+"--ESTE ES EL VALOR VAS A INSERTAR");
 		
-		datoService.insertarDato(dato);
+		datoService.insertarDato(dato, result);
 	}
 	
 	/**

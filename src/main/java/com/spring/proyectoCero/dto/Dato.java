@@ -11,10 +11,10 @@ public class Dato implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	@Pattern(regexp = "[0-9]{1}", message = "El identificador no puede ser mayor que 9")
+	@Pattern(regexp = "[0-9]{1}", message = "{i18n.error.clave.repetida}")
 	private String identificador;
 	
-	@Size(min = 1, max = 20, message = "El nombre debe tener mas de 1 letras y menos de 20.")
+	@Size(min = 1, max = 20, message = "{i18n.error.clave.repetida}" )
 	@NotBlank
 	private String nombre;
 	

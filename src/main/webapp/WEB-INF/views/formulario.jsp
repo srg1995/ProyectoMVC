@@ -30,26 +30,6 @@
 		</spring:hasBindErrors>
             
         </mvc:form>
-        
-        
-        <mvc:form modelAttribute="dato" action="validarFormString">
-            <div>
-            	<mvc:label  path="identificador">Id: </mvc:label>
-            	<mvc:input  path="identificador"  /><br>
-            	<mvc:errors path="identificador" class="formFieldError"/>
-            </div>
-            <div>
-				<mvc:label  path="nombre">Nombre: </mvc:label>
-                <mvc:input  path="nombre"  /><br>
-                <mvc:errors path="nombre" class="formFieldError" />
-            </div>
-            <div>
-            	<input type="submit" value="Submit" />
-            </div>
-            
-            ${errorId}
-            
-        </mvc:form>
 
     </body>
 </html>
