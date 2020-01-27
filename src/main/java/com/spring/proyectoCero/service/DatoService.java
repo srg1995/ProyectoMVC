@@ -20,9 +20,11 @@ public class DatoService {
 	private DatoMapper datoMapper;
 
 	
-	/* IMPORTANTE
+	/**
+	 * IMPORTANTE
 	 * Para que no nos devuelva un error el mapper, necesitamos crear el getter y el setter para poder acceder a bean
 	 * */
+	
 	/**
 	 * 
 	 * @return
@@ -40,7 +42,7 @@ public class DatoService {
 	}
 	
 	/**
-	 * 
+	 * Metodo que devuelve un Dato de BBDD, que se obtiene mediante el identificador del mismo
 	 * @param id lo utilizamos para sobre que dato vamos a hacer la consulta de la bbdd
 	 * @return devolvemos el objeto tipo Dato, que hemos obtenido de la bbdd(en caso de que exista)
 	 */
@@ -48,8 +50,15 @@ public class DatoService {
 		return datoMapper.getDato(id);
 	}
 	
+	/**
+	 * Metodo que devuelve al controller la respuesta que obtiene de la BBDD, bien sea un OK o un KO
+	 * 
+	 * @param d
+	 * @param result
+	 * @return devuelve el resultado obtenido por BBDD
+	 * 
+	 */
 	public BindingResult insertarDato(Dato d, BindingResult result) {
-		
 
 		ResourceBundle messages = ResourceBundle.getBundle("i18n/mensajes", LocaleContextHolder.getLocale());
 		try {
@@ -61,10 +70,18 @@ public class DatoService {
 		return result;
 	}
 	
+	/**
+	 * Metodo para actualizar un dato de la BBDD, teniendo como referencia el identificador
+	 * @param d
+	 */
 	public void actualizarDato(Dato d) {
 		datoMapper.actualizarDato(d);
 	}
 	
+	/**
+	 * Metodo para borrar un dato de la BBDD, teniendo como referencia el nombre del mismo
+	 * @param d
+	 */
 	public void borrarDato(String nombre) {
 		datoMapper.borrarDato(nombre);
 	}

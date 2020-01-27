@@ -33,12 +33,4 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-  
-    <!-- la plantilla de las url, que template de url va por cada lado 
-	  	<servlet-mapping>
-	    	<servlet-name>appServlet</servlet-name>
-	    	<url-pattern>/</url-pattern>
-	  	</servlet-mapping>
-	-->
 </web-app>

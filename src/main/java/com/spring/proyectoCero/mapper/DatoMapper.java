@@ -10,10 +10,13 @@ import com.spring.proyectoCero.dto.Dato;
  *	las consultas las crearemos en el xml propio que se encuentra en el mismo paquete de mapper
  */
 public interface DatoMapper {
+	
 	public Dato getDato(String identificador);
 	
 	public void insertarDato(Dato d);
+	
 	public void actualizarDato(Dato d);
+	
 	public void borrarDato(String nombre);
 	
 }
