@@ -1,4 +1,4 @@
-package com.spring.proyectoCero.controller;
+package com.spring.proyectoCero.controller.json;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -15,8 +15,10 @@ public class ProyectoCeroControllerJson {
 
 	/**
 	 * 
+	 * Metodo que recoge un JSON por medio del consumes y lo devuelve por el produces
+	 * 
 	 * @param dato
-	 * @return
+	 * @return el mismo objeto enviado el JSON
 	 */
 	@PostMapping(value = "/test/bodyjson", consumes = {
 			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })

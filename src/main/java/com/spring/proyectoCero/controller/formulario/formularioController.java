@@ -49,13 +49,17 @@ public class formularioController {
 	 * Metodo en el que validamos los datos que recibimos de la jsp,
 	 * Lo validamos mediante el BindingResult, este objeto permite realizar las validaciones necesarias y ademas extiende de Errors
 	 * 
+	 * 
 	 * @param d el parametro @valid Dato, se encarga de comprobar las validaciones que se encuentran en la clase Dato
 	 * @param result permite que validemos y el se encargue de gestionar los errores
 	 * @return puede devolver o bien un ok: redireccion a una pagina de OK, 
 	 * o un KO: en este caso redireccionara a la misma pagina de formunlario, 
 	 * con el objeto Errors relleno con los errores correspondientes
+	 * 
+	 * Este metodo devuelve un ModelAndView que se encarga de gestionar 
+	 * las vistas con modelo incorporado para asi poder manejar estos objetos en la jsp
 	 */
-	@RequestMapping("validarForm")
+	@RequestMapping("/validarForm")
 	public ModelAndView validarFormulario(@Valid Dato d, BindingResult result){
 		ModelAndView model = new ModelAndView();
 		model.addObject("dato", d);

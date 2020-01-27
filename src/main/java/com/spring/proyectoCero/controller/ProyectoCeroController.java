@@ -43,38 +43,4 @@ public class ProyectoCeroController {
 		return "saludo";
 	}
 	
-
-	/**
-	 * 
-	 * @param dato
-	 * @return
-	 */
-	@RequestMapping(value = "/test/body", method = RequestMethod.GET)
-	@ResponseBody
-	public String obtenerParametro(@RequestParam(value = "dato") String dato) {
-	    return dato;
-	}
-	
-	/**
-	 * 
-	 * @param dato
-	 * @return
-	 */
-	@RequestMapping(value = "/test/bodyjson", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public String obtenerJson(@RequestBody Dato dato) {
-	    return dato.getNombre();
-	}
-	
-	/**
-	 * 
-	 * @param dato
-	 * @return
-	 */
-	@RequestMapping(value = "/test/bodyjson", method = RequestMethod.POST)
-	@ResponseBody
-	public String obtenerTextoPost(@RequestBody String dato) {
-	    return dato;
-	}
-	
 }

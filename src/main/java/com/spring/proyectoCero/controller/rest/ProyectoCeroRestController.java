@@ -1,4 +1,4 @@
-package com.spring.proyectoCero.controller;
+package com.spring.proyectoCero.controller.rest;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,16 +15,5 @@ public class ProyectoCeroRestController {
 	public String cargaInicialRest() {
 		
 		return "saludoRest";
-	}
-	
-	/**
-	 * 
-	 * @param nombre
-	 * @return
-	 */
-	@GetMapping(value = "/restController/get")
-	public String cargaInicialRest(@RequestParam(name = "nombre", required = false, defaultValue = "none") String nombre) {
-		
-		return nombre;
 	}
 }
