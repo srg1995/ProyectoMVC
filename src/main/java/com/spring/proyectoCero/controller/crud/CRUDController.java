@@ -5,9 +5,11 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.proyectoCero.dto.Dato;
 import com.spring.proyectoCero.service.DatoService;
@@ -79,5 +81,42 @@ public class CRUDController {
 		m.addAttribute("tipoAccion", "BORRAR");
 		m.addAttribute("dato", dato);
 		return "crud/objetoCrud";
+	}
+	
+	/**
+	 * Metodo que creamos para ver si podemos OBTENER un valor de BBDD haciendo una invocacion al servicio
+	 * En este caso lo haremos mediante "RequestParam" para recoger el dato a consultar
+	 */
+	@RequestMapping(value = "/testRequestParam", method = RequestMethod.GET)
+	public String borrarValorRequestParam(@RequestParam("id")String id, Model m){
+		Dato d = new Dato();
+		d.setIdentificador(id);
+		datoService.getDatoMapper(d.getIdentificador());
+		
+		System.out.print(d.getNombre()+"ESTE ES EL VALOR");
+		
+		m.addAttribute("tipoAccion", "CONSULTAR");
+		m.addAttribute("dato", d);
+		
+		return "crud/objetoCrud"; 
+	}
+	
+	
+	/**
+	 * Metodo que creamos para ver si podemos OBTENER un valor de BBDD haciendo una invocacion al servicio
+	 * En este caso lo haremos mediante "PathVariable" para recoger el dato a consultar
+	 */
+	@RequestMapping(value = "/testPathVariable/{id}", method = RequestMethod.GET)
+	public String borrarValorPathVariable(@PathVariable("id") String id, Model m){
+		Dato d = new Dato();
+		d.setIdentificador(id);
+		datoService.getDatoMapper(d.getIdentificador());
+		
+		System.out.print(d.getNombre()+"ESTE ES EL VALOR");
+		
+		m.addAttribute("tipoAccion", "CONSULTAR");
+		m.addAttribute("dato", d);
+		
+		return "crud/objetoCrud"; 
 	}
 }

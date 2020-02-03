@@ -43,4 +43,23 @@ public class ProyectoCeroController {
 		return "saludo";
 	}
 	
+	/**
+	 * Metodo que creamos para que nos devuelva una jsp mediante el metodo get
+	 */
+	@RequestMapping(value = "/testError404", method = RequestMethod.GET)
+	public String cargaInicial404(){
+		return "xxx";
+	}
+	
+	/**
+	 * Metodo que creamos para que nos devuelva una jsp mediante el metodo get
+	 */
+	@RequestMapping(value = "/testError500", method = RequestMethod.GET)
+	public String cargaInicial500(){
+		datoService.borrarDato("pepito");
+		return "xxx";
+	}
+	
+	
+	
 }
