@@ -6,6 +6,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 public class Dato implements Serializable {
 	
@@ -17,6 +18,8 @@ public class Dato implements Serializable {
 	@Size(min = 1, max = 20, message = "{i18n.error.clave.repetida}" )
 	@NotBlank
 	private String nombre;
+	
+	private MultipartFile archivo;
 	
 	public Dato() {}
 
@@ -50,6 +53,14 @@ public class Dato implements Serializable {
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public MultipartFile getArchivo() {
+		return archivo;
+	}
+
+	public void setArchivo(MultipartFile archivo) {
+		this.archivo = archivo;
 	}
 	
 	
